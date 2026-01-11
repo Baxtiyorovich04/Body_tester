@@ -1,10 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import './Home.scss';
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const handleStart = () => {
- 
+    navigate('/age-input');
   };
 
   return (
