@@ -1,0 +1,132 @@
+@import '../styles/base/variables';
+
+.selection {
+  width: 100%;
+  padding: 32px 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__container {
+    max-width: $container-width;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    width: 100%;
+  }
+
+  &__title {
+    width: 353px;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 33px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    width: 100%;
+    max-width: 643px;
+  }
+
+  &__card {
+    border-radius: 12px;
+    width: 312px;
+    height: 131px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+    position: relative;
+
+    &:hover:not(&--selected) {
+      border-width: 3px;
+      border-style: solid;
+      border-color: var(--hover-border-color, #007BFF);
+      box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+    }
+
+    &--selected {
+      border-width: 3px;
+      border-style: solid;
+      box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+    }
+  }
+
+  &__card-icons {
+    position: absolute;
+    gap: 8px;
+    top: 16px;
+    left: 35px;
+    margin-bottom: 16px;
+  }
+
+  &__card-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+
+  }
+
+  &__card-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: start;
+    color: #fff;
+    margin: 0;
+    line-height: 1.4;
+    width: 220px;
+    position: absolute;
+    bottom: 17px;
+  }
+
+  &__button-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 16px;
+    margin-left: 400px;
+  }
+
+  &__select-all {
+    background: #00C0C0;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 40px;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    color: #252525;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 192, 192, 0.4);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}

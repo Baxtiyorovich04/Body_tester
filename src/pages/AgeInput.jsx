@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 import Button from '../components/Button';
 import './AgeInput.scss';
 
 const AgeInput = () => {
+  const navigate = useNavigate();
   const [age, setAge] = useState(0);
 
   const handleDecrease = () => {
@@ -18,7 +20,7 @@ const AgeInput = () => {
 
   const handleInputChange = (e) => {
     const value = e.target.value;
-    // Allow empty string or valid numbers
+   
     if (value === '' || /^\d+$/.test(value)) {
       const numValue = value === '' ? 0 : parseInt(value, 10);
       setAge(numValue);
@@ -33,7 +35,7 @@ const AgeInput = () => {
   };
 
   const handleNext = () => {
- 
+    navigate('/coin-drop');
   };
 
   return (
