@@ -48,8 +48,19 @@ const Selection = () => {
   const handleSelectAll = () => {
     if (selectedCards.length === cards.length) {
       setSelectedCards([]);
+      // Clear all measurements mode
+      localStorage.removeItem('measurementQueue');
+      localStorage.removeItem('currentMeasurementIndex');
+      localStorage.removeItem('isAllMeasurementsMode');
     } else {
       setSelectedCards(cards.map(card => card.id));
+      // Set up for all measurements flow
+      const measurementOrder = ['weight-height', 'temperature', 'oxygen', 'blood-pressure'];
+      localStorage.setItem('measurementQueue', JSON.stringify(measurementOrder));
+      localStorage.setItem('currentMeasurementIndex', '0');
+      localStorage.setItem('isAllMeasurementsMode', 'true');
+      // Navigate to gender selection first
+      navigate('/gender-selection');
     }
   };
 

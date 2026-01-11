@@ -16,7 +16,30 @@ const TemperatureMeasurement = () => {
   };
 
   const handleFinish = () => {
-    navigate('/success');
+    // Check if we're in "all measurements" mode
+    const isAllMeasurementsMode = localStorage.getItem('isAllMeasurementsMode') === 'true';
+    
+    if (isAllMeasurementsMode) {
+      // Get next measurement from queue
+      const measurementQueue = JSON.parse(localStorage.getItem('measurementQueue') || '[]');
+      const currentIndex = parseInt(localStorage.getItem('currentMeasurementIndex') || '0');
+      const nextIndex = currentIndex + 1;
+      
+      if (nextIndex < measurementQueue.length) {
+        // Navigate to next measurement
+        localStorage.setItem('currentMeasurementIndex', nextIndex.toString());
+        const nextMeasurement = measurementQueue[nextIndex];
+        navigate(`/measurement/${nextMeasurement}`);
+      } else {
+        // All measurements done, go to success
+        localStorage.removeItem('measurementQueue');
+        localStorage.removeItem('currentMeasurementIndex');
+        localStorage.removeItem('isAllMeasurementsMode');
+        navigate('/success');
+      }
+    } else {
+      navigate('/success');
+    }
   };
 
   const hasTemperature = temperature !== '' && parseFloat(temperature) > 0;

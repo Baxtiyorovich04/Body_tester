@@ -7,21 +7,40 @@ const GenderSelection = () => {
   const navigate = useNavigate();
 
   const handleGenderSelect = (gender) => {
-    // Get selected measurement type from localStorage
-    const selectedMeasurement = localStorage.getItem('selectedMeasurement');
+    // Store gender selection
+    localStorage.setItem('selectedGender', gender);
     
-    // Navigate to the appropriate measurement page
-    if (selectedMeasurement === 'temperature') {
-      navigate('/measurement/temperature');
-    } else if (selectedMeasurement === 'weight-height') {
-      navigate('/measurement/weight-height');
-    } else if (selectedMeasurement === 'oxygen') {
-      navigate('/measurement/oxygen');
-    } else if (selectedMeasurement === 'blood-pressure') {
-      navigate('/measurement/blood-pressure');
+    // Check if we're in "all measurements" mode
+    const isAllMeasurementsMode = localStorage.getItem('isAllMeasurementsMode') === 'true';
+    
+    if (isAllMeasurementsMode) {
+      // Get the first measurement from the queue
+      const measurementQueue = JSON.parse(localStorage.getItem('measurementQueue') || '[]');
+      const currentIndex = parseInt(localStorage.getItem('currentMeasurementIndex') || '0');
+      
+      if (measurementQueue.length > 0 && currentIndex < measurementQueue.length) {
+        const firstMeasurement = measurementQueue[currentIndex];
+        navigate(`/measurement/${firstMeasurement}`);
+      } else {
+        navigate('/success');
+      }
     } else {
-      // Default to temperature if no selection
-      navigate('/measurement/temperature');
+      // Single measurement mode - get selected measurement type from localStorage
+      const selectedMeasurement = localStorage.getItem('selectedMeasurement');
+      
+      // Navigate to the appropriate measurement page
+      if (selectedMeasurement === 'temperature') {
+        navigate('/measurement/temperature');
+      } else if (selectedMeasurement === 'weight-height') {
+        navigate('/measurement/weight-height');
+      } else if (selectedMeasurement === 'oxygen') {
+        navigate('/measurement/oxygen');
+      } else if (selectedMeasurement === 'blood-pressure') {
+        navigate('/measurement/blood-pressure');
+      } else {
+        // Default to temperature if no selection
+        navigate('/measurement/temperature');
+      }
     }
   };
 

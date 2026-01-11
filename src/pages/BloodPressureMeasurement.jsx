@@ -92,15 +92,16 @@ const BloodPressureMeasurement = () => {
                     inputMode="numeric"
                     disabled={!cuffWorn}
                   />
-                  <span className="blood-pressure-measurement__display-unit">mmHg</span>
+                  
                 </div>
+                <span className="blood-pressure-measurement__display-unit">mmHg</span>
               </div>
               
               <div className="blood-pressure-measurement__display-section">
                 <h3 className="blood-pressure-measurement__display-title">Puls miqdori</h3>
                 <div className="blood-pressure-measurement__display-content">
                   <img 
-                    src="/assets/icons/pulse_b.svg" 
+                    src="/assets/icons/bloodOxygen_b.svg" 
                     alt="Pulse" 
                     className="blood-pressure-measurement__display-icon"
                   />

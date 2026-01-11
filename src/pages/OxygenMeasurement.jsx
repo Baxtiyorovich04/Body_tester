@@ -15,7 +15,30 @@ const OxygenMeasurement = () => {
   };
 
   const handleFinish = () => {
-    navigate('/success');
+    // Check if we're in "all measurements" mode
+    const isAllMeasurementsMode = localStorage.getItem('isAllMeasurementsMode') === 'true';
+    
+    if (isAllMeasurementsMode) {
+      // Get next measurement from queue
+      const measurementQueue = JSON.parse(localStorage.getItem('measurementQueue') || '[]');
+      const currentIndex = parseInt(localStorage.getItem('currentMeasurementIndex') || '0');
+      const nextIndex = currentIndex + 1;
+      
+      if (nextIndex < measurementQueue.length) {
+        // Navigate to next measurement
+        localStorage.setItem('currentMeasurementIndex', nextIndex.toString());
+        const nextMeasurement = measurementQueue[nextIndex];
+        navigate(`/measurement/${nextMeasurement}`);
+      } else {
+        // All measurements done, go to success
+        localStorage.removeItem('measurementQueue');
+        localStorage.removeItem('currentMeasurementIndex');
+        localStorage.removeItem('isAllMeasurementsMode');
+        navigate('/success');
+      }
+    } else {
+      navigate('/success');
+    }
   };
 
   const hasOxygen = oxygen !== '' && parseInt(oxygen) > 0;
@@ -34,7 +57,11 @@ const OxygenMeasurement = () => {
             <div className="oxygen-measurement__display-box">
               <h3 className="oxygen-measurement__display-title">Kislorod miqdori</h3>
               <div className="oxygen-measurement__display-content">
-                <span className="oxygen-measurement__display-o2">O₂</span>
+                <img 
+                  src="/assets/icons/amountOfOxyghen.svg" 
+                  alt="Oxygen" 
+                  className="oxygen-measurement__display-icon"
+                />
                 <input
                   type="text"
                   className="oxygen-measurement__display-value"
