@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Selection.scss';
+import '../styles/pages/_selection.scss';
 
 const Selection = () => {
   const navigate = useNavigate();
@@ -40,11 +40,9 @@ const Selection = () => {
   ];
 
   const handleCardClick = (card) => {
-    if (selectedCards.includes(card.id)) {
-      setSelectedCards(selectedCards.filter(id => id !== card.id));
-    } else {
-      setSelectedCards([...selectedCards, card.id]);
-    }
+    // Store selected measurement type and navigate to gender selection
+    localStorage.setItem('selectedMeasurement', card.id);
+    navigate('/gender-selection');
   };
 
   const handleSelectAll = () => {
@@ -64,7 +62,7 @@ const Selection = () => {
       <div className="selection__container">
         <div className="selection__content">
           <h2 className="selection__title">O'zingizga kerakli bo'lgan bo'limni tanlang</h2>
-          
+
           <div className="selection__grid">
             {cards.map((card) => (
               <div
@@ -79,14 +77,14 @@ const Selection = () => {
                 }}
               >
                 <div className="selection__card-icons">
-                  <img 
-                    src={card.icon} 
+                  <img
+                    src={card.icon}
                     alt={card.title}
                     className="selection__card-icon"
                   />
                   {card.icon2 && (
-                    <img 
-                      src={card.icon2} 
+                    <img
+                      src={card.icon2}
                       alt=""
                       className="selection__card-icon"
                     />
@@ -96,9 +94,9 @@ const Selection = () => {
               </div>
             ))}
           </div>
-          
+
           <div className="selection__button-wrapper">
-            <button 
+            <button
               className="selection__select-all"
               onClick={handleSelectAll}
             >

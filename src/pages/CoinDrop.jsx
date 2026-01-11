@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './CoinDrop.scss';
+import '../styles/pages/_coin-drop.scss';
 
 const CoinDrop = () => {
   const navigate = useNavigate();

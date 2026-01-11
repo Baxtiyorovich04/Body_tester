@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 import Button from '../components/Button';
-import './AgeInput.scss';
+import '../styles/pages/_age-input.scss';
 
 const AgeInput = () => {
   const navigate = useNavigate();
