@@ -8,6 +8,9 @@ import CoinDrop from './pages/CoinDrop';
 import Selection from './pages/Selection';
 import GenderSelection from './pages/GenderSelection';
 import TemperatureMeasurement from './pages/TemperatureMeasurement';
+import WeightHeightMeasurement from './pages/WeightHeightMeasurement';
+import OxygenMeasurement from './pages/OxygenMeasurement';
+import BloodPressureMeasurement from './pages/BloodPressureMeasurement';
 import Success from './pages/Success';
 
 function App() {
@@ -21,10 +24,10 @@ function App() {
             <Route path="/coin-drop" element={<CoinDrop />} />
             <Route path="/selection" element={<Selection />} />
             <Route path="/gender-selection" element={<GenderSelection />} />
-            <Route path="/measurement/weight-height" element={<div>Weight & Height Measurement</div>} />
+            <Route path="/measurement/weight-height" element={<WeightHeightMeasurement />} />
             <Route path="/measurement/temperature" element={<TemperatureMeasurement />} />
-            <Route path="/measurement/oxygen" element={<div>Blood Oxygen Measurement</div>} />
-            <Route path="/measurement/blood-pressure" element={<div>Blood Pressure & Pulse Measurement</div>} />
+            <Route path="/measurement/oxygen" element={<OxygenMeasurement />} />
+            <Route path="/measurement/blood-pressure" element={<BloodPressureMeasurement />} />
             <Route path="/success" element={<Success />} />
           </Routes>
         </MainLayout>
