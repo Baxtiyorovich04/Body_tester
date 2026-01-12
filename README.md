@@ -1,70 +1,204 @@
-# Getting Started with Create React App
+# Body Tester - Cosmos Innovation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React-based web application for comprehensive body health measurements and data collection. This application guides users through a series of health measurements including temperature, weight, height, blood oxygen, and blood pressure monitoring.
 
-## Available Scripts
+## 🌟 Features
 
-In the project directory, you can run:
+### User Registration
+- **Camera Integration**: Capture user photo using webcam
+- **Name Input**: Personal registration with name entry
+- **Guest Mode**: Option to skip registration and continue as guest
 
-### `npm start`
+### Health Measurements
+- **Age Input**: User-friendly age input with increment/decrement buttons
+- **Gender Selection**: Choose between male and female options
+- **Temperature Measurement**: Body temperature monitoring
+- **Weight & Height**: Combined measurement tracking
+- **Blood Oxygen**: Oxygen saturation level measurement
+- **Blood Pressure & Pulse**: Comprehensive cardiovascular monitoring
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Advanced Features
+- **Select All Mode**: Complete all measurements sequentially with a single click
+- **Data Collection**: All measurements are stored and collected
+- **Success Summary**: Complete data summary displayed in console
+- **Responsive Design**: Modern UI with smooth animations and transitions
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Getting Started
 
-### `npm test`
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn package manager
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
 
-### `npm run build`
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd bodytester
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install dependencies:
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Start the development server:
+```bash
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Build for Production
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm run build
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This creates an optimized production build in the `build` folder.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📁 Project Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+bodytester/
+├── public/
+│   ├── assets/
+│   │   ├── icons/          # SVG icons for UI elements
+│   │   └── imgs/           # WebP images for illustrations
+│   ├── index.html
+│   └── manifest.json
+├── src/
+│   ├── components/         # Reusable components
+│   │   └── Button.jsx
+│   ├── layout/             # Layout components
+│   │   ├── Header.jsx
+│   │   └── MainLayout.jsx
+│   ├── pages/              # Page components
+│   │   ├── Registration.jsx
+│   │   ├── Home.jsx
+│   │   ├── AgeInput.jsx
+│   │   ├── CoinDrop.jsx
+│   │   ├── Selection.jsx
+│   │   ├── GenderSelection.jsx
+│   │   ├── TemperatureMeasurement.jsx
+│   │   ├── WeightHeightMeasurement.jsx
+│   │   ├── OxygenMeasurement.jsx
+│   │   ├── BloodPressureMeasurement.jsx
+│   │   └── Success.jsx
+│   ├── styles/             # SCSS stylesheets
+│   │   ├── base/           # Base styles and variables
+│   │   ├── layout/         # Layout styles
+│   │   ├── pages/          # Page-specific styles
+│   │   └── main.scss       # Main stylesheet
+│   ├── App.jsx             # Main app component with routing
+│   └── index.js            # Entry point
+└── package.json
+```
 
-## Learn More
+## 🎨 Technology Stack
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **React 19.2.3** - UI library
+- **React Router DOM 7.12.0** - Client-side routing
+- **SCSS/Sass** - Styling with variables and nesting
+- **React Icons** - Icon library
+- **Web APIs** - Camera access (getUserMedia)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📱 Application Flow
 
-### Code Splitting
+1. **Registration** (`/`)
+   - Camera capture or guest mode
+   - Name input (if registering)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. **Home** (`/home`)
+   - Welcome screen
+   - Start button
 
-### Analyzing the Bundle Size
+3. **Age Input** (`/age-input`)
+   - Enter age with controls
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4. **Coin Drop** (`/coin-drop`)
+   - Interactive coin drop animation
 
-### Making a Progressive Web App
+5. **Selection** (`/selection`)
+   - Choose measurement types
+   - Select all option available
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+6. **Gender Selection** (`/gender-selection`)
+   - Choose gender before measurements
 
-### Advanced Configuration
+7. **Measurement Pages** (`/measurement/*`)
+   - Temperature
+   - Weight & Height
+   - Blood Oxygen
+   - Blood Pressure & Pulse
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+8. **Success** (`/success`)
+   - Completion message
+   - Data summary in console
 
-### Deployment
+## 💾 Data Collection
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+All user data is collected and stored in browser localStorage:
 
-### `npm run build` fails to minify
+- **Registration Data**: Photo (base64), name, guest status
+- **Personal Info**: Age, gender
+- **Measurements**: Temperature, weight, height, oxygen, blood pressure, pulse
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+On the Success page, all collected data is logged to the browser console in a formatted structure.
+
+## 🎯 Key Features Explained
+
+### Select All Mode
+When users click "Hammasini tanlash" (Select All) button:
+- All measurement types are queued
+- Gender is asked once at the beginning
+- Measurements proceed sequentially
+- Each measurement must be completed before moving to the next
+
+### Camera Integration
+- Uses browser's `getUserMedia` API
+- Real-time video preview
+- Photo capture with canvas
+- Error handling for camera permissions
+
+### Responsive Design
+- Centered content layout
+- Consistent styling across all pages
+- Smooth animations and transitions
+- Modern UI with glow effects
+
+## 🛠️ Development
+
+### Available Scripts
+
+- `npm start` - Runs development server
+- `npm test` - Launches test runner
+- `npm run build` - Creates production build
+- `npm run eject` - Ejects from Create React App (one-way operation)
+
+### Styling
+
+The project uses SCSS with a modular structure:
+- Variables in `styles/base/_variables.scss`
+- Base styles in `styles/base/_base.scss`
+- Page-specific styles in `styles/pages/`
+- Layout styles in `styles/layout/`
+
+## 📝 Notes
+
+- The application requires camera permissions for registration
+- All data is stored locally in browser localStorage
+- Images are optimized using WebP format
+- The app is designed for touch-screen kiosk environments
+
+## 🤝 Contributing
+
+This is a private project for Cosmos Innovation. For contributions or questions, please contact the project maintainers.
+
+## 📄 License
+
+Private project - All rights reserved.
+
+---
+
+**Developed by Cosmos Innovation**  
+*"Innovatsion kelajakni biz bilan birga quring"*
