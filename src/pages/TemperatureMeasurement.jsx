@@ -16,6 +16,9 @@ const TemperatureMeasurement = () => {
   };
 
   const handleFinish = () => {
+    // Save temperature measurement
+    localStorage.setItem('temperature', temperature);
+    
     // Check if we're in "all measurements" mode
     const isAllMeasurementsMode = localStorage.getItem('isAllMeasurementsMode') === 'true';
     

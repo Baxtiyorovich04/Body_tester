@@ -15,11 +15,12 @@ const OxygenMeasurement = () => {
   };
 
   const handleFinish = () => {
-    // Check if we're in "all measurements" mode
+    // Save oxygen measurement
+    localStorage.setItem('oxygen', oxygen);
+    
     const isAllMeasurementsMode = localStorage.getItem('isAllMeasurementsMode') === 'true';
     
     if (isAllMeasurementsMode) {
-      // Get next measurement from queue
       const measurementQueue = JSON.parse(localStorage.getItem('measurementQueue') || '[]');
       const currentIndex = parseInt(localStorage.getItem('currentMeasurementIndex') || '0');
       const nextIndex = currentIndex + 1;

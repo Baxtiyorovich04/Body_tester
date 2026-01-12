@@ -1,0 +1,318 @@
+@import '../base/variables';
+
+.registration {
+  width: 100%;
+  padding: 32px 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 120px);
+
+  &__container {
+    max-width: $container-width;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  &__title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    text-align: center;
+    color: #54ffff;
+    margin-bottom: 24px;
+    text-shadow: 0 0 20px rgba(84, 255, 255, 0.5);
+  }
+
+  &__camera-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 4/3;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(84, 255, 255, 0.3);
+    background: #000;
+  }
+
+  &__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__camera-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__camera-frame {
+    width: 80%;
+    height: 80%;
+    border: 3px solid #54ffff;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(84, 255, 255, 0.6);
+    animation: pulseFrame 2s ease-in-out infinite;
+  }
+
+  &__photo-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 4/3;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(84, 255, 255, 0.3);
+  }
+
+  &__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__retake-button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1e1e1e;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      background: #fff;
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  &__camera-controls {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &__capture-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: #54ffff;
+    border: none;
+    border-radius: 12px;
+    color: #1e1e1e;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(84, 255, 255, 0.5);
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(84, 255, 255, 0.7);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    svg {
+      font-size: 24px;
+    }
+  }
+
+  &__name-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__name-input-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(84, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 16px 20px;
+    transition: all 0.3s ease;
+
+    &:focus-within {
+      border-color: #54ffff;
+      box-shadow: 0 0 20px rgba(84, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  &__name-icon {
+    color: #54ffff;
+    font-size: 24px;
+    margin-right: 16px;
+  }
+
+  &__name-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  &__guest-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 48px;
+    background: rgba(84, 255, 255, 0.1);
+    border: 2px solid rgba(84, 255, 255, 0.3);
+    border-radius: 16px;
+    width: 100%;
+  }
+
+  &__guest-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(84, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #54ffff;
+    font-size: 64px;
+    box-shadow: 0 0 30px rgba(84, 255, 255, 0.3);
+  }
+
+  &__guest-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    text-align: center;
+    color: #fff;
+    margin: 0;
+  }
+
+  &__error {
+    padding: 12px 24px;
+    background: rgba(224, 0, 0, 0.2);
+    border: 2px solid rgba(224, 0, 0, 0.5);
+    border-radius: 8px;
+    color: #ff6b6b;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__button {
+    min-width: 180px;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 500;
+
+    &--guest {
+      background: rgba(84, 255, 255, 0.2);
+      color: #54ffff;
+      border: 2px solid #54ffff;
+      box-shadow: 0 0 15px rgba(84, 255, 255, 0.3);
+
+      &:hover {
+        background: rgba(84, 255, 255, 0.3);
+        box-shadow: 0 0 20px rgba(84, 255, 255, 0.5);
+      }
+    }
+
+    &--register {
+      background: rgba(84, 255, 255, 0.2);
+      color: #54ffff;
+      border: 2px solid #54ffff;
+      box-shadow: 0 0 15px rgba(84, 255, 255, 0.3);
+
+      &:hover {
+        background: rgba(84, 255, 255, 0.3);
+        box-shadow: 0 0 20px rgba(84, 255, 255, 0.5);
+      }
+    }
+
+    &--continue {
+      background: #54ffff;
+      color: #1e1e1e;
+      box-shadow: 0 0 20px rgba(84, 255, 255, 0.6);
+    }
+  }
+}
+
+@keyframes pulseFrame {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(84, 255, 255, 0.6);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 30px rgba(84, 255, 255, 0.8);
+  }
+}

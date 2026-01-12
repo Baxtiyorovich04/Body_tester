@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.scss';
 import MainLayout from './layout/MainLayout';
+import Registration from './pages/Registration';
 import Home from './pages/Home';
 import AgeInput from './pages/AgeInput';
 import CoinDrop from './pages/CoinDrop';
@@ -19,7 +20,8 @@ function App() {
       <div className="App">
         <MainLayout>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Registration />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/age-input" element={<AgeInput />} />
             <Route path="/coin-drop" element={<CoinDrop />} />
             <Route path="/selection" element={<Selection />} />

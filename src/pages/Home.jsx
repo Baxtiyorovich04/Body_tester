@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import '../styles/pages/_home.scss';
 
 const Home = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if user has registered, if not redirect to registration
+    const userData = localStorage.getItem('userData');
+    if (!userData) {
+      navigate('/');
+    }
+  }, [navigate]);
 
   const handleStart = () => {
     navigate('/age-input');

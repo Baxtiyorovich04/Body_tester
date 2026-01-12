@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaCheck } from 'react-icons/fa';
 import Button from '../components/Button';
@@ -7,7 +7,70 @@ import '../styles/pages/_success.scss';
 const Success = () => {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // Collect all entered data
+    const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+    const age = localStorage.getItem('age');
+    const gender = localStorage.getItem('gender');
+    const temperature = localStorage.getItem('temperature');
+    const weight = localStorage.getItem('weight');
+    const height = localStorage.getItem('height');
+    const oxygen = localStorage.getItem('oxygen');
+    const bloodPressureSystolic = localStorage.getItem('bloodPressureSystolic');
+    const bloodPressureDiastolic = localStorage.getItem('bloodPressureDiastolic');
+    const pulse = localStorage.getItem('pulse');
+
+    // Compile all data
+    const allData = {
+      registration: {
+        isGuest: userData.isGuest || false,
+        name: userData.name || 'N/A',
+        photo: userData.photo ? 'Photo captured' : null
+      },
+      personalInfo: {
+        age: age || 'N/A',
+        gender: gender || 'N/A'
+      },
+      measurements: {
+        temperature: temperature ? `${temperature}°C` : 'N/A',
+        weight: weight ? `${weight}kg` : 'N/A',
+        height: height ? `${height}sm` : 'N/A',
+        oxygen: oxygen ? `${oxygen}%` : 'N/A',
+        bloodPressure: (bloodPressureSystolic && bloodPressureDiastolic) 
+          ? `${bloodPressureSystolic}/${bloodPressureDiastolic} mmHg` 
+          : 'N/A',
+        pulse: pulse ? `${pulse} bpm` : 'N/A'
+      },
+      timestamp: new Date().toISOString()
+    };
+
+    // Log all data to console
+    console.log('========================================');
+    console.log('BODY TESTER - BARCHA MA\'LUMOTLAR');
+    console.log('========================================');
+    console.log('Ro\'yxatdan o\'tish:', allData.registration);
+    console.log('Shaxsiy ma\'lumotlar:', allData.personalInfo);
+    console.log('O\'lchovlar:', allData.measurements);
+    console.log('Vaqt:', allData.timestamp);
+    console.log('========================================');
+    console.log('To\'liq ma\'lumotlar:', JSON.stringify(allData, null, 2));
+    console.log('========================================');
+  }, []);
+
   const handleHome = () => {
+    // Clear all data when going home
+    localStorage.removeItem('userData');
+    localStorage.removeItem('age');
+    localStorage.removeItem('gender');
+    localStorage.removeItem('temperature');
+    localStorage.removeItem('weight');
+    localStorage.removeItem('height');
+    localStorage.removeItem('oxygen');
+    localStorage.removeItem('bloodPressureSystolic');
+    localStorage.removeItem('bloodPressureDiastolic');
+    localStorage.removeItem('pulse');
+    localStorage.removeItem('selectedMeasurement');
+    
     navigate('/');
   };
 

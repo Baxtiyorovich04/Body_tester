@@ -23,6 +23,10 @@ const WeightHeightMeasurement = () => {
   };
 
   const handleFinish = () => {
+    // Save weight and height measurements
+    localStorage.setItem('weight', weight);
+    localStorage.setItem('height', height);
+    
     // Check if we're in "all measurements" mode
     const isAllMeasurementsMode = localStorage.getItem('isAllMeasurementsMode') === 'true';
     

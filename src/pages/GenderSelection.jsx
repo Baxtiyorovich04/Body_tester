@@ -8,7 +8,7 @@ const GenderSelection = () => {
 
   const handleGenderSelect = (gender) => {
     // Store gender selection
-    localStorage.setItem('selectedGender', gender);
+    localStorage.setItem('gender', gender);
     
     // Check if we're in "all measurements" mode
     const isAllMeasurementsMode = localStorage.getItem('isAllMeasurementsMode') === 'true';
