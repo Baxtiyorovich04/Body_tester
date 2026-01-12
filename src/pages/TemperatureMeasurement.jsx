@@ -81,7 +81,7 @@ const TemperatureMeasurement = () => {
 
           <div className="temperature-measurement__illustration">
             <img 
-              src="/assets/imgs/temperature.svg" 
+              src="/assets/imgs/temperature.webp" 
               alt="Temperature measurement" 
               className="temperature-measurement__image"
             />

@@ -150,7 +150,7 @@ const BloodPressureMeasurement = () => {
 
           <div className="blood-pressure-measurement__illustration">
             <img 
-              src="/assets/imgs/pressure.svg" 
+              src="/assets/imgs/pressure.webp" 
               alt="Blood pressure measurement" 
               className="blood-pressure-measurement__image"
             />

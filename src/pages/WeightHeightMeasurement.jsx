@@ -110,7 +110,7 @@ const WeightHeightMeasurement = () => {
 
           <div className="weight-height-measurement__illustration">
             <img 
-              src="/assets/imgs/height.svg" 
+              src="/assets/imgs/height.webp" 
               alt="Weight and height measurement" 
               className="weight-height-measurement__image"
             />

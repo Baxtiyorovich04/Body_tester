@@ -78,7 +78,7 @@ const OxygenMeasurement = () => {
 
           <div className="oxygen-measurement__illustration">
             <img 
-              src="/assets/imgs/blood_test_finger.svg" 
+              src="/assets/imgs/blood_test_finger.webp" 
               alt="Blood oxygen measurement" 
               className="oxygen-measurement__image"
             />

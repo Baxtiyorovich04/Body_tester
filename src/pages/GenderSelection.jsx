@@ -51,7 +51,7 @@ const GenderSelection = () => {
           <h2 className="gender-selection__title">Iltimos jinsni tanlang</h2>
           
           <img 
-            src="/assets/imgs/gender.svg" 
+            src="/assets/imgs/gender.webp" 
             alt="Gender symbols" 
             className="gender-selection__image"
           />
